@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Container, Row, Col } from "react-bootstrap";
 
 import {
@@ -21,7 +23,9 @@ const data = [
   { x: 9, y: 9 },
 ];
 
-export default function App() {
+export default function Orderbook() {
+  const [orderbook, setOrderBook] = useState([]);
+  
   return (
     <Container>
       <Row>

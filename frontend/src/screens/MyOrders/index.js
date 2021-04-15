@@ -1,6 +1,10 @@
+import { useState } from "react";
+
 import { Table, Button } from "react-bootstrap";
 
 export default function MyOrders() {
+  const [orders, setOrders] = useState([]);
+  
   return (
     <Table striped bordered hover>
       <thead>

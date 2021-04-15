@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -8,9 +10,11 @@ import MyOrders from "./screens/MyOrders";
 import AddOrder from "./screens/AddOrder";
 
 export default function App() {
+  const [userId, setUserId] = useState(1);
+
   return (
     <Router>
-      <Menu />
+      <Menu userId={userId} setUserId={setUserId} />
 
       <>
         <Switch>
@@ -18,10 +22,10 @@ export default function App() {
             <OrderBook />
           </Route>
           <Route path="/orders">
-            <MyOrders />
+            <MyOrders userId={userId} />
           </Route>
           <Route path="/add_order">
-            <AddOrder />
+            <AddOrder userId={userId} />
           </Route>
         </Switch>
       </>
