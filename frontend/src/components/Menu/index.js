@@ -1,5 +1,5 @@
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 export default function Menu() {
   return (
     <Navbar bg="light" expand="lg">
@@ -12,12 +12,17 @@ export default function Menu() {
             placeholder="Enter user id"
             className="mr-sm-2"
           />
-          <Button variant="outline-success">Set user id</Button>
         </Form>
         <Nav className="ml-auto">
-          <Nav.Link href="#home">Order Book</Nav.Link>
-          <Nav.Link href="#link">My Orders</Nav.Link>
-          <Button variant="primary">Add order</Button>
+          <Nav.Link as={Link} to="/">
+            Orderbook
+          </Nav.Link>
+          <Nav.Link as={Link} to="/orders">
+            My Orders
+          </Nav.Link>
+          <Button as={Link} to="/add_order" variant="primary">
+            Add order
+          </Button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
