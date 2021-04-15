@@ -5,6 +5,7 @@ import Menu from "./components/Menu";
 
 import OrderBook from "./screens/OrderBook";
 import MyOrders from "./screens/MyOrders";
+import AddOrder from "./screens/AddOrder";
 
 export default function App() {
   return (
@@ -20,7 +21,7 @@ export default function App() {
             <MyOrders />
           </Route>
           <Route path="/add_order">
-            <h2>add order</h2>
+            <AddOrder />
           </Route>
         </Switch>
       </>
