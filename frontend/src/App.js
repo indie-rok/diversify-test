@@ -14,12 +14,12 @@ export default function App() {
 
   return (
     <Router>
-      <Menu userId={userId} setUserId={setUserId} />
+      <Menu />
 
       <>
         <Switch>
           <Route path="/" exact>
-            <OrderBook />
+            <OrderBook userId={userId} setUserId={setUserId} />
           </Route>
           <Route path="/orders">
             <MyOrders userId={userId} />

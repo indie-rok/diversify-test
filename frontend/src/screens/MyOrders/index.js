@@ -11,6 +11,7 @@ export default function MyOrders({ userId }) {
     return (
       <tr key={order.orderId}>
         <td>{order.orderId}</td>
+        <td>{order.userId}</td>
         <td>{order.amount}</td>
         <td>{order.price}</td>
         <td>
@@ -47,7 +48,8 @@ export default function MyOrders({ userId }) {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Order Id</th>
+            <th>User Id</th>
             <th>Amount</th>
             <th>Price</th>
             <th></th>

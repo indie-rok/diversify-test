@@ -1,4 +1,4 @@
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function Menu({ userId, setUserId }) {
@@ -7,16 +7,6 @@ export default function Menu({ userId, setUserId }) {
       <Navbar.Brand>Trading Company</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse>
-        <Form inline>
-          <Navbar.Text>UserId: </Navbar.Text>
-          <FormControl
-            type="text"
-            placeholder="Enter user id"
-            value={userId}
-            onChange={(event) => parseInt(setUserId(event.target.value))}
-            className="mr-sm-2"
-          />
-        </Form>
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/">
             Orderbook

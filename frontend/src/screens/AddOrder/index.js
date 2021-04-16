@@ -28,6 +28,12 @@ export default function AddOrder({ userId }) {
           />
         </Form.Group>
 
+        <Form.Group>
+          <Form.Label>
+            User Id: <strong>{userId}</strong>
+          </Form.Label>
+        </Form.Group>
+
         <Button
           variant="success"
           onClick={async () => {
@@ -43,7 +49,6 @@ export default function AddOrder({ userId }) {
           Send
         </Button>
       </Form>
-      {userId}
     </Container>
   );
 }
