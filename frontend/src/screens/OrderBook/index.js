@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -10,6 +10,8 @@ import {
   XAxis,
   YAxis,
 } from "react-vis";
+
+import { getOrderBook } from "../../utils/api";
 
 const data = [
   { x: 1, y: 1 },
@@ -25,7 +27,14 @@ const data = [
 
 export default function Orderbook() {
   const [orderbook, setOrderBook] = useState([]);
-  
+
+  useEffect(() => {
+    async function fetchData() {
+      await getOrderBook();
+    }
+    fetchData();
+  }, []);
+
   return (
     <Container>
       <Row>
