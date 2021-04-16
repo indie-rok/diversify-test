@@ -16,19 +16,46 @@ var router = express.Router();
 */
 
 let orders = [
-  { orderId: "asd", userId: 1, amount: 2, value: 3 },
-  { orderId: "zxc", userId: 1, amount: 2, value: 3 },
+  { orderId: uuidv4(), userId: 1, amount: 1, price: 7 },
+  { orderId: uuidv4(), userId: 1, amount: 1, price: 4 },
+  { orderId: uuidv4(), userId: 2, amount: 2, price: 2 },
+  { orderId: uuidv4(), userId: 2, amount: 2, price: 9 },
+  { orderId: uuidv4(), userId: 3, amount: 3, price: 3 },
+  { orderId: uuidv4(), userId: 3, amount: 3, price: 4 },
+  { orderId: uuidv4(), userId: 4, amount: 4, price: 1 },
+  { orderId: uuidv4(), userId: 4, amount: 5, price: 2 },
+  { orderId: uuidv4(), userId: 5, amount: 6, price: 5 },
+  { orderId: uuidv4(), userId: 5, amount: 6, price: 8 },
 ];
 
 /* GET /orders or /getOrderBook */
 router.get("/", function (req, res, next) {
-  res.json(orders);
+  let histogram = {};
+
+  orders.forEach((order) => {
+    const groupedAmounts = Object.keys(histogram);
+
+    if (!groupedAmounts.includes(String(order.amount))) {
+      histogram[order.amount] = 0;
+    }
+
+    histogram[order.amount] = histogram[order.amount] += order.price;
+  });
+
+  let arrayHistogram = [];
+
+  for (let x in histogram) {
+    const y = histogram[x];
+    arrayHistogram.push({ x: parseInt(x), y: parseInt(y) });
+  }
+
+  res.json(arrayHistogram);
 });
 
 /* POST /orders or /placeOrder */
 router.post("/", function (req, res, next) {
-  const { userId, amount, value } = req.body;
-  const order = { orderId: uuidv4(), userId, amount, value };
+  const { userId, amount, price } = req.body;
+  const order = { orderId: uuidv4(), userId, amount, price };
 
   orders.push(order);
 
