@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { Form, Button, Container } from "react-bootstrap";
 
+import { placeOrder } from "../../utils/api";
+
 export default function AddOrder({ userId }) {
   const [amount, setAmount] = useState(1);
   const [price, setPrice] = useState(1);
@@ -26,7 +28,20 @@ export default function AddOrder({ userId }) {
           />
         </Form.Group>
 
-        <Button variant="success">Send</Button>
+        <Button
+          variant="success"
+          onClick={async () => {
+            const { status } = await placeOrder({
+              amount,
+              price,
+              userId,
+            });
+
+            if (status === 200) alert("Order Created");
+          }}
+        >
+          Send
+        </Button>
       </Form>
     </Container>
   );

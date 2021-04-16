@@ -25,3 +25,15 @@ export const getOrdersForUser = async (userId) => {
 
   return response;
 };
+
+export const placeOrder = async (order) => {
+  let response = {};
+
+  try {
+    response = await axios.post(API_URL, order);
+  } catch (err) {
+    return { err: err.message };
+  }
+
+  return response;
+};
