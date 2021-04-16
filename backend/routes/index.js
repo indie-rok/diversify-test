@@ -11,6 +11,8 @@ var router = express.Router();
 /*
   TODO
   1. Add validators
+  2. Add database
+  3. Add auth
 */
 
 let orders = [
