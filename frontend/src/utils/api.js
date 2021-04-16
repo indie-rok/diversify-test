@@ -3,14 +3,13 @@ import axios from "axios";
 const API_URL = "http://localhost:5000/orders";
 
 export const getOrderBook = async () => {
-  let orderBook = {};
+  let response = {};
 
   try {
-    orderBook = await axios.get(API_URL);
+    response = await axios.get(API_URL);
   } catch (err) {
-    return { err };
+    return { err: err.message };
   }
 
-  console.log("hola", orderBook.data);
-  return {};
+  return response;
 };
