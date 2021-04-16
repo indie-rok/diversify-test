@@ -13,3 +13,15 @@ export const getOrderBook = async () => {
 
   return response;
 };
+
+export const getOrdersForUser = async (userId) => {
+  let response = {};
+
+  try {
+    response = await axios.get(`${API_URL}/${userId}`);
+  } catch (err) {
+    return { err: err.message };
+  }
+
+  return response;
+};
