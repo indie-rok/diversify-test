@@ -43,6 +43,7 @@ export default function AddOrder({ userId }) {
           Send
         </Button>
       </Form>
+      {userId}
     </Container>
   );
 }

@@ -13,7 +13,7 @@ export default function Menu({ userId, setUserId }) {
             type="text"
             placeholder="Enter user id"
             value={userId}
-            onChange={(event) => setUserId(event.target.value)}
+            onChange={(event) => parseInt(setUserId(event.target.value))}
             className="mr-sm-2"
           />
         </Form>

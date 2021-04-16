@@ -22,7 +22,7 @@ export default function Orderbook() {
       setOrderBook(data);
     }
     fetchData();
-  }, [orderbook]);
+  }, []);
 
   return (
     <Container>
